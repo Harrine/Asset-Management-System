@@ -1,0 +1,76 @@
+﻿@model Repositories.models.t_User
+@{
+    ViewData["Title"] = "Register User";
+}
+<h3 style="display: flex; align-items: center; justify-content: center; margin-top: 50px;">@ViewData["Title"]</h3>
+
+<div class="container mt-5" style="border: 1px solid #ccc; width: 70%;padding:20px">
+    <h3>Register</h3>
+    <form enctype="multipart/form-data" asp-action="Register" asp-controller="UserApi" method="post">
+        <!-- <input type="hidden" asp-for="c_userid" id="c_userid"> -->
+
+        <div class="form-group">
+            <label asp-for="c_UserName">Username</label>
+            <input asp-for="c_UserName" class="form-control" id="name" />
+            <span class="text-danger" asp-validation-for="c_UserName"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="c_Email">Email</label>
+            <input asp-for="c_Email" type="email" class="form-control" id="email" />
+            <span class="text-danger" asp-validation-for="c_Email"></span>
+
+        </div>
+
+        <div class="form-group">
+            <label asp-for="c_Password">Password</label>
+            <input asp-for="c_Password" type="password" class="form-control" id="pwd" />
+            <span class="text-danger" asp-validation-for="c_Password"></span>
+
+        </div>
+        <!-- <div class="form-group">
+            <label asp-for="c_ConfirmPassword">Confirm Password</label>
+            <input asp-for="c_ConfirmPassword" type="password" class="form-control" id="conpwd" />
+            <span class="text-danger" asp-validation-for="c_Password"></span>
+
+        </div> -->
+
+        <div class="form-group">
+            <label asp-for="c_Gender">Gender</label>
+            <div>
+                <input type="radio" id="gender1" name="gender" asp-for="c_Gender" value="Male"> Male
+                <input type="radio" id="gender2" name="gender" asp-for="c_Gender" value="Female"> Female
+                <input type="radio" id="gender3" name="gender" asp-for="c_Gender" value="Other"> Other
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="c_Image">Image</label>
+            <input type="file" class="form-control" asp-for="ProfilePicture" id="Image">
+        </div>
+
+        <button type="submit" id="register" class="btn btn-primary mt-3">Register</button>
+    </form>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $('#register').click(function(){
+                var formdata = new FormData();
+                formdata.append("c_UserName", $('#name').val());
+                formdata.append("c_Email", $('#email').val());
+                formdata.append("c_Password", $('#pwd').val());
+                formdata.append("c_Gender", $('input[name="gender"]:checked').val());
+                var fileInput = $('#image')[0]?.files[0];
+                if (fileInput) {
+                    formData.append("ProfilePicture", fileInput);
+                }
+                $.ajax({
+                    url:""
+                })
+            })
+        })
+    </script>
+}
