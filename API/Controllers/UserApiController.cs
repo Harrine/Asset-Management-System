@@ -28,7 +28,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([FromForm] t_User user, [FromForm] IFormFile profileImage)
+        public async Task<IActionResult> Register([FromForm] t_User user)
         {
             if (user.ProfilePicture != null && user.ProfilePicture.Length > 0)
             {
@@ -80,14 +80,23 @@ namespace API.Controllers
                 return Ok(new
                 {
                     success = false,
-                    message = "Invalid email or password", UserData = UserData });
-                }
-            }
-
-            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-            public IActionResult Error()
-            {
-                return View("Error!");
+                    message = "Invalid email or password",
+                    UserData = UserData
+                });
             }
         }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View("Error!");
+        }
+        
+
+        public IActionResult Logout()
+        {
+            Console.WriteLine("Logout");
+            return View();
+        }
     }
+}
