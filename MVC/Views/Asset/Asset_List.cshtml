@@ -26,7 +26,7 @@
 
 
 
-@section Scripts{
+@section Scripts {
     <script>
         $(document).ready(function () {
             console.log("Asset List Document Loaded successfully")
@@ -36,11 +36,11 @@
         function loadData() {
             var user = JSON.parse(sessionStorage.getItem("user"));
             $.ajax({
-                
-                url: "http://localhost:5273/GetAll",
+
+                url: "http://localhost:5273/GetAll" + "?id=" + user.c_UserId,
                 type: 'GET',
                 success: function (response) {
-                    console.log("response : ",response);
+                    console.log("response : ", response);
                     if (response.success) {
                         console.log("In successs of login");
                         const tableBody = $('#assetTable tbody');
@@ -48,18 +48,23 @@
 
                         response.data.forEach(function (asset) {
                             const row = `<tr>
-                                        <th>${asset.c_assetsId}</th>
-                                        <th>${asset.c_assetsName}</th>
-                                        <th>${asset.c_Description}</th>
+                                            <th>${asset.c_assetsId}</th>
+                                            <th>${asset.c_assetsName}</th>
+                                            <th>${asset.c_Description}</th>
+                                            <th>${asset.c_cupboardID}</th>
 
-                                        <td>${asset.c_Image ? `<img src="../../contact_images/${asset.c_Image}" alt="Image" width="50" height="50">` : '-'}</td>                      
-                                        <th>${asset.c_cupboardID}</th>
-                                        <th>${asset.c_tags}</th>
-                                        <td><button type="button" class="btn btn-primary"
-                                        onclick="editData(${asset.c_assetsId})" >Edit</button></td>
-                                        <td><button type="button" class="btn btn-danger"
-                                            onclick="deleteData(${asset.c_assetsId},'${asset.c_assetsName}')" >Delete</button></td>
-                                    </tr>`;
+                                            <td>
+                                                    ${asset.c_assetImage ?
+                                                    `<img src="/asset_images/${asset.c_assetImage}" alt="Image" width="50" height="50">` :
+                                                    '-'
+                                                    }
+                                            </td>                      
+                                            <th>${asset.c_tags}</th>
+                                            <td><button type="button" class="btn btn-primary"
+                                            onclick="editData(${asset.c_assetsId})" >Edit</button></td>
+                                            <td><button type="button" class="btn btn-danger"
+                                                onclick="deleteData(${asset.c_assetsId},'${asset.c_assetsName}')" >Delete</button></td>
+                                        </tr>`;
                             tableBody.append(row);
                         });
                     }
@@ -69,5 +74,7 @@
                 }
             })
         }
+    
+        
     </script>
 }

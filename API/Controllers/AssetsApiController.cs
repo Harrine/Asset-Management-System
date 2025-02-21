@@ -117,9 +117,11 @@ namespace API.Controllers
         [Route("GetAll")]
         public async Task<IActionResult> GetAllAsset(){
             // string user_id = "1";
-            string user_id = HttpContext.Request.Query["userid"].ToString();
+            string user_id = HttpContext.Request.Query["id"].ToString();
+            // string user_id = HttpContext.Session.GetString("c_UserId");
             List<t_Assets> asset_list = null;
 
+            Console.WriteLine("User id : ",user_id);
             if(user_id != ""){
                 asset_list = await _assets.GetAssetsByUser(user_id);
             }else{

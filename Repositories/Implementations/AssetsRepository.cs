@@ -185,7 +185,7 @@ namespace Repositories.Implementations
             List<t_Assets> asset = new List<t_Assets>();
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Assets where c_userId = @c_userID", _npgsqlconnection))
+                using (NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Assets where c_userId::text = @c_userID", _npgsqlconnection))
                 {
                     cmd.Parameters.AddWithValue("@c_userID", id);
                     if (_npgsqlconnection.State != ConnectionState.Open)
