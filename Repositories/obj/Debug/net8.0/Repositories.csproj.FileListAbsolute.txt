@@ -6,6 +6,7 @@ D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.GeneratedMSBui
 D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfoInputs.cache
 D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfo.cs
 D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.csproj.CoreCompileInputs.cache
+D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json
 D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.dll
 D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\refint\Repositories.dll
 D:\Dotnet_CP\Ketan Sir\Repositories\obj\Debug\net8.0\Repositories.pdb

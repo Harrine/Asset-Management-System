@@ -106,16 +106,18 @@ namespace API.Controllers
             t_Assets status = await _assets.GetAssetsById(id);
 
             if(status != null){
-                return Ok(new {success = true, message = "Asset is Read from the database"});
+                return Ok(new {success = true, message = "Asset is Read from the database", data = status});
             }else{
                 return BadRequest(new {success = false, message= "Erro in getiing specific asset in controller"});
             }
         }
 
+
         [HttpGet]
         [Route("GetAll")]
         public async Task<IActionResult> GetAllAsset(){
-            string user_id = "1";
+            // string user_id = "1";
+            string user_id = HttpContext.Request.Query["userid"].ToString();
             List<t_Assets> asset_list = null;
 
             if(user_id != ""){
@@ -123,7 +125,7 @@ namespace API.Controllers
             }else{
                 asset_list = await _assets.GetAll();
             }
-            return Ok(new {success = true, message = "asset retrieve from database"});
+            return Ok(new {success = true, message = "asset retrieve from database",data = asset_list });
         }
 
         public IActionResult Index()

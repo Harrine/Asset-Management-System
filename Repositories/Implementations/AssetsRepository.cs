@@ -143,9 +143,9 @@ namespace Repositories.Implementations
                     _npgsqlconnection.Open();
                 }
 
-                using (NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Assets where c_assetId = @c_assetsID",_npgsqlconnection))
+                using (NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Assets where c_userId = @c_userId", _npgsqlconnection))
                 {
-                    cmd.Parameters.AddWithValue("@c_assetsID", Convert.ToInt32(id));
+                    cmd.Parameters.AddWithValue("@c_userId", Convert.ToInt32(id));
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         if (reader.HasRows)
@@ -203,6 +203,8 @@ namespace Repositories.Implementations
                                 c_Description = reader.GetString(reader.GetOrdinal("c_Description")),
                                 c_tags = reader.GetString(reader.GetOrdinal("c_tags")),
                                 c_assetImage = reader.GetString(reader.GetOrdinal("c_assetImage")),
+                                c_cupboardID = reader.GetInt32(reader.GetOrdinal("c_cupboardId")),
+                                c_userID = reader.GetInt32(reader.GetOrdinal("c_userId"))
                             });
                         }
                     }
@@ -227,10 +229,11 @@ namespace Repositories.Implementations
         {
             try
             {
-                if(_npgsqlconnection.State != ConnectionState.Open){
+                if (_npgsqlconnection.State != ConnectionState.Open)
+                {
                     _npgsqlconnection.Open();
                 }
-                using (NpgsqlCommand cmd = new NpgsqlCommand("Update t_Assets set c_assetName=@c_assetname,c_Description=@c_description,c_assetImage=@c_image,c_cupboardId=@c_cupboardID,c_tags=@c_tags where c_assetId = @c_assetID",_npgsqlconnection))
+                using (NpgsqlCommand cmd = new NpgsqlCommand("Update t_Assets set c_assetName=@c_assetname,c_Description=@c_description,c_assetImage=@c_image,c_cupboardId=@c_cupboardID,c_tags=@c_tags where c_assetId = @c_assetID", _npgsqlconnection))
                 {
                     cmd.Parameters.AddWithValue("@c_assetID", asset.c_assetsId);
                     cmd.Parameters.AddWithValue("@c_assetname", asset.c_assetsName);

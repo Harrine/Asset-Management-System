@@ -6,7 +6,7 @@
 
 <div class="container mt-5" style="border: 1px solid #ccc; width: 70%;padding:20px">
     <h3>Register</h3>
-    <form enctype="multipart/form-data" asp-action="Register" asp-controller="UserApi" method="post">
+    <form enctype="multipart/form-data" id="registerForm" method="post">
         <!-- <input type="hidden" asp-for="c_userid" id="c_userid"> -->
 
         <div class="form-group">
@@ -49,28 +49,54 @@
             <input type="file" class="form-control" asp-for="ProfilePicture" id="Image">
         </div>
 
-        <button type="submit" id="register" class="btn btn-primary mt-3">Register</button>
+        <button  id="register" class="btn btn-primary mt-3">Register</button>
+        <div id="responseMessage"></div>
     </form>
 </div>
 
 
-@section Scripts{
+@section Scripts {
     <script>
-        $(document).ready(function(){
-            $('#register').click(function(){
-                var formdata = new FormData();
-                formdata.append("c_UserName", $('#name').val());
-                formdata.append("c_Email", $('#email').val());
-                formdata.append("c_Password", $('#pwd').val());
-                formdata.append("c_Gender", $('input[name="gender"]:checked').val());
-                var fileInput = $('#image')[0]?.files[0];
-                if (fileInput) {
-                    formData.append("ProfilePicture", fileInput);
+        $(document).ready(function () {
+            alert("..........")
+
+        })
+        $('#register').click(function (e) {
+            console.log(",,,,,,,,,,,,,,,")
+            debugger
+            var form = $('#registerForm')[0];
+
+            e.preventDefault();
+            var formdata = new FormData(form);
+            formdata.append("c_UserName", $('#name').val());
+            formdata.append("c_Email", $('#email').val());
+            formdata.append("c_Password", $('#pwd').val());
+            formdata.append("c_Gender", $('input[name="gender"]:checked').val());
+
+            var fileInput = $('#image')[0]?.files[0];
+            if (fileInput) {
+                formData.append("ProfilePicture", fileInput);
+            }
+            $.ajax({
+                url: "http://localhost:5273/Register",
+                type: 'post',
+                data: formdata,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.success) {
+                        $('#responseMessage').text('User Registered Successfully!');
+                        console.log("Register Successfully");
+                        window.location="../Home/Login"
+                    } else {
+                        $('#responseMessage').addClass("alert alert-danger");
+                        $('#responseMessage').text('Error: ' + response.message);
+                    }
                 }
-                $.ajax({
-                    url:""
-                })
-            })
+                        @* error: function (error) {
+                    $('#responseMessage').text("Error occured input registering"); *@
+                
+            });
         })
     </script>
 }

@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Dotnet_CP\Ketan Sir\MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Dotnet_CP/Ketan Sir/MVC/Views/Asset/Asset_List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXRcQXNzZXRfTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Dotnet_CP/Ketan Sir/MVC/Views/Asset/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXRcUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Dotnet_CP/Ketan Sir/MVC/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Dotnet_CP/Ketan Sir/MVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Dotnet_CP/Ketan Sir/MVC/Views/Shared/_Asset_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Bc3NldF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dotnet_CP/Ketan Sir/MVC/Views/Shared/_ValidationScriptsPartial.cshtml]

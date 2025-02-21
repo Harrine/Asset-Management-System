@@ -10,7 +10,9 @@ using Repositories.models;
 
 namespace API.Controllers
 {
+    // [Route("/UserApi/")]
     // [Route("api/[controller]")]
+    // [ApiController]
     public class UserApiController : Controller
     {
         private readonly IUserInterface _user;
@@ -21,10 +23,6 @@ namespace API.Controllers
             _user = userInterface;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         [HttpPost]
         [Route("Register")]
@@ -93,10 +91,10 @@ namespace API.Controllers
         }
         
 
-        public IActionResult Logout()
-        {
-            Console.WriteLine("Logout");
-            return View();
-        }
+        // public IActionResult Logout()
+        // {
+        //     Console.WriteLine("Logout");
+        //     return View();
+        // }
     }
 }

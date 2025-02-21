@@ -1,0 +1,73 @@
+@{
+    Layout = "../Shared/_Asset_Layout.cshtml";
+}
+
+<h1> List of Asset</h1>
+
+<button type="button" id="btnadd" class="btn btn-primary" onclick="clearData();$('#myModal').modal('show');">✚</button>
+<div class="mt-5" id="responseMessage"></div>
+<div class="container mt-4">
+    <table class="table table-striped" id="assetTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>Asset-ID</th>
+                <th>Asset-Name</th>
+                <th>Description</th>
+                <th>CupboardID</th>
+                <th>Image</th>
+                <th>Tag</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            console.log("Asset List Document Loaded successfully")
+            loadData();
+        })
+
+        function loadData() {
+            var user = JSON.parse(sessionStorage.getItem("user"));
+            $.ajax({
+                
+                url: "http://localhost:5273/GetAll",
+                type: 'GET',
+                success: function (response) {
+                    console.log("response : ",response);
+                    if (response.success) {
+                        console.log("In successs of login");
+                        const tableBody = $('#assetTable tbody');
+                        tableBody.empty();
+
+                        response.data.forEach(function (asset) {
+                            const row = `<tr>
+                                        <th>${asset.c_assetsId}</th>
+                                        <th>${asset.c_assetsName}</th>
+                                        <th>${asset.c_Description}</th>
+
+                                        <td>${asset.c_Image ? `<img src="../../contact_images/${asset.c_Image}" alt="Image" width="50" height="50">` : '-'}</td>                      
+                                        <th>${asset.c_cupboardID}</th>
+                                        <th>${asset.c_tags}</th>
+                                        <td><button type="button" class="btn btn-primary"
+                                        onclick="editData(${asset.c_assetsId})" >Edit</button></td>
+                                        <td><button type="button" class="btn btn-danger"
+                                            onclick="deleteData(${asset.c_assetsId},'${asset.c_assetsName}')" >Delete</button></td>
+                                    </tr>`;
+                            tableBody.append(row);
+                        });
+                    }
+                },
+                error: function () {
+                    console.log("Error Occured in asset List html");
+                }
+            })
+        }
+    </script>
+}
