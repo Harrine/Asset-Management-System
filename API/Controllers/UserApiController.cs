@@ -61,6 +61,17 @@ namespace API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetUser")]
+        public async Task<IActionResult> GetUser(string id){
+            t_User user = await _user.GetUser(id);
+            if(user!= null){
+                return Ok(new {success = true, message="USer Retrive from the database",data=user});
+            }else{
+                return BadRequest(new {success = false, message = "Error in GEt user controller"});
+            }
+        }
+
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromForm] Login user)

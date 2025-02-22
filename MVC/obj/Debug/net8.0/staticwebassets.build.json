@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nY+39tV3Q7Y1JVSHTwsLM93Yvll16sWEfMiCGvQanDI=",
+  "Hash": "PbF7g9ipKJNUdjbwAaxkwJZQA/HcCbpPpuKht43Givo=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -150,6 +150,25 @@
       "OriginalItemSpec": "wwwroot\\asset_images\\102000f0-8817-4d8c-a92e-e4c0ba98e81a.png"
     },
     {
+      "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\192ab221-c9fd-4b97-bb67-34780d18e664.jpg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "asset_images/192ab221-c9fd-4b97-bb67-34780d18e664.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset_images\\192ab221-c9fd-4b97-bb67-34780d18e664.jpg"
+    },
+    {
       "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\2.png",
       "SourceId": "MVC",
       "SourceType": "Discovered",
@@ -245,6 +264,25 @@
       "OriginalItemSpec": "wwwroot\\asset_images\\514df583-732e-4bc9-8170-0404bc1507ac.png"
     },
     {
+      "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\6d251b6d-9475-41c7-94ea-c12f782cc613.jpg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "asset_images/6d251b6d-9475-41c7-94ea-c12f782cc613.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset_images\\6d251b6d-9475-41c7-94ea-c12f782cc613.jpg"
+    },
+    {
       "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\7c95bd74-e1e8-47d8-9f45-2e9c69f1dc2d.png",
       "SourceId": "MVC",
       "SourceType": "Discovered",
@@ -283,6 +321,25 @@
       "OriginalItemSpec": "wwwroot\\asset_images\\8.png"
     },
     {
+      "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\80d9c127-0870-49a7-8158-9686255c8971.jpg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "asset_images/80d9c127-0870-49a7-8158-9686255c8971.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset_images\\80d9c127-0870-49a7-8158-9686255c8971.jpg"
+    },
+    {
       "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\817ec3d6-d7c9-488b-83a3-7a1ae2bd16dd.png",
       "SourceId": "MVC",
       "SourceType": "Discovered",
@@ -300,6 +357,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\asset_images\\817ec3d6-d7c9-488b-83a3-7a1ae2bd16dd.png"
+    },
+    {
+      "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\8cd478b1-80ae-4ebf-9407-434ac44970d6.jpg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "asset_images/8cd478b1-80ae-4ebf-9407-434ac44970d6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset_images\\8cd478b1-80ae-4ebf-9407-434ac44970d6.jpg"
     },
     {
       "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\94a70853-687c-4ea0-8207-d64389f54042.png",
@@ -338,6 +414,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\asset_images\\97243118-61df-4000-8e6d-c828a2ce3f03.png"
+    },
+    {
+      "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\9bfb1424-887a-4f6b-bd3c-1dac44b4cadc.jpg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "asset_images/9bfb1424-887a-4f6b-bd3c-1dac44b4cadc.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset_images\\9bfb1424-887a-4f6b-bd3c-1dac44b4cadc.jpg"
     },
     {
       "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\af1a82cd-9ce4-45e6-b7d0-bc921ea6143e.png",

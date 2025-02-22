@@ -11,6 +11,8 @@ namespace Repositories.Interfaces
         Task<int> Register(t_User register);
         Task<t_User> Login(Login user);
 
+        Task<t_User> GetUser(string user);
+
         // Task<>
     }
 }

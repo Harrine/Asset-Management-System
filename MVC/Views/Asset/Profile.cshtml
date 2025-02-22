@@ -3,3 +3,59 @@
 }
 
 <h1>Profile</h1>
+
+
+<div id="userDetails" class="mt-4" >
+    <h4>User Information</h4>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <td id="userName"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td id="userEmail"></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td id="userGender"></td>
+        </tr>
+        <tr>
+            <th>Profile Image</th>
+            <td><img id="userImage" src="" alt="Profile Image" width="300" height="200" /></td>
+        </tr>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            loadData();
+        })
+
+        function loadData() {
+            var user = sessionStorage.getItem("user");
+            let userobj=JSON.parse(user);
+            let userid = userobj.c_UserId
+
+            console.log(userid);
+            $.ajax({
+                url: "http://localhost:5273/GetUser" + "?id=" + userid,
+                type: "GET",
+                success: function (response) {
+                    if (response.success) {
+                        console.log("Inside loadData of profile_images success");
+                        $('#userName').text(response.data.c_UserName);
+                        $('#userEmail').text(response.data.c_Email);
+                        $('#userGender').text(response.data.c_Gender);
+                        $('#userImage').attr("src","/profile_images/" + response.data.c_Image);
+                        console.log("Completed loadData of profile_images success");
+                    }
+                },
+                error(xhr,status,error){
+                    console.log("Error Occured input loadData of profile:",xhr);
+                }
+            })
+        }
+    </script>
+}

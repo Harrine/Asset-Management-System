@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Npgsql;
 using Repositories.Interfaces;
 using Repositories.models;
@@ -16,6 +17,42 @@ namespace Repositories.Implementations
         {
             _npgsqlConnection = npgsqlConnection;
         }
+
+        public async Task<t_User> GetUser(string user)
+        {
+            t_User person = null;
+            try{
+                if(_npgsqlConnection.State != ConnectionState.Open){
+                    _npgsqlConnection.Open();
+                }
+
+                using(NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Users_Api where c_Id = @c_user_id", _npgsqlConnection)){
+                    cmd.Parameters.AddWithValue("c_user_id",Convert.ToInt32(user));
+
+                    using(NpgsqlDataReader reader = await cmd.ExecuteReaderAsync()){
+                        if(reader.HasRows){
+                            while(await reader.ReadAsync()){
+                                person = new t_User{
+                                    c_UserName = reader.GetString(reader.GetOrdinal("c_Name")),
+                                    c_Email = reader.GetString(reader.GetOrdinal("c_Email")),
+                                    c_Gender = reader.GetString(reader.GetOrdinal("c_Gender")),
+                                    c_Image = reader.GetString(reader.GetOrdinal("c_ProfileImage")),
+                                    c_Password = reader.GetString(reader.GetOrdinal("c_Password")),
+                                    c_UserId = reader.GetInt32(reader.GetOrdinal("c_Id"))
+                                };
+                            }
+                        }
+                    }
+                }
+            }catch(Exception ex){
+                Console.WriteLine("Error Occured in GetUser Repository : ",ex.Message);
+            }finally{
+                if(_npgsqlConnection.State == ConnectionState.Open){
+                    _npgsqlConnection.Close();
+                }
+            }
+            return person;
+        } 
 
         public async Task<t_User> Login(Login user)
         {
@@ -117,6 +154,7 @@ namespace Repositories.Implementations
             return -1;
         }
     
+        
         
     }
 }

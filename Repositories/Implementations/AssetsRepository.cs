@@ -66,7 +66,7 @@ namespace Repositories.Implementations
                 }
                 using (NpgsqlCommand cmd = new NpgsqlCommand("Delete from t_Assets where c_assetId = @c_assetsId", _npgsqlconnection))
                 {
-                    cmd.Parameters.AddWithValue("@c_assetsId", id);
+                    cmd.Parameters.AddWithValue("@c_assetsId", Convert.ToInt32(id));
                     cmd.ExecuteNonQuery();
                     return 1;
                 }

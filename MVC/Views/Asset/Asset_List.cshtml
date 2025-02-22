@@ -7,6 +7,7 @@
 <button type="button" id="btnadd" class="btn btn-primary" onclick="clearData();$('#myModal').modal('show');">✚</button>
 <div class="mt-5" id="responseMessage"></div>
 <div class="container mt-4">
+    <div id="responseMessage"></div>
     <table class="table table-striped" id="assetTable">
         <thead class="thead-dark">
             <tr>
@@ -342,6 +343,24 @@
             })
         }
 
+        function deleteData(id){
+            var ans = confirm("Do You Really want to Delete !!");
+            if(ans){
+                $.ajax({
+                    url: "http://localhost:5273/Delete" +"?id="+id,
+                    type:"DELETE",
+                    success:function(response){
+                        if(response.success){
+                            loadData();
+                            console.log("Asset deleteData Successfully !!");
+                        }
+                    },
+                    error(xhr,status,error){
+                        console.log("Error Occured in deleteData function : ",xhr);
+                    }
+                })
+            }
+        }
 
     </script>
 }
