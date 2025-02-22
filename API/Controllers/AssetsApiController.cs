@@ -59,6 +59,17 @@ namespace API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetAssetByAssetID")]
+        public async Task<IActionResult> GetAssetByAssetsID(string id){
+            t_Assets status = await _assets.GetAssetsByAssetID(id);
+            if(status != null){
+                return Ok(new{success=true,message="Asset identified by asset id.",data=status});
+            }else{
+                return BadRequest(new {success=false,message="Error occured in asset controller identyfing specific asset by id"});
+            }
+        }
+
         [HttpPut]
         [Route("Update")]
         public async Task<IActionResult> Update([FromForm] t_Assets asset)
@@ -70,7 +81,9 @@ namespace API.Controllers
 
             if (asset.c_assetPicture != null && asset.c_assetPicture.Length > 0)
             {
-                var filename = asset.c_assetsId + Path.GetExtension(asset.c_assetPicture.FileName);
+                Guid guid = Guid.NewGuid();
+                string guidstring = guid.ToString();
+                var filename = guidstring + Path.GetExtension(asset.c_assetPicture.FileName);
                 var filepath = Path.Combine("../MVC/wwwroot/asset_images", filename);
                 asset.c_assetImage = filename;
                 System.IO.File.Delete(filepath);

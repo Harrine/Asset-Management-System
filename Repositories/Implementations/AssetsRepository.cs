@@ -226,6 +226,44 @@ namespace Repositories.Implementations
             return rooms;
         }
 
+        public async Task<t_Assets> GetAssetsByAssetID(string id)
+        {
+            t_Assets assets = null;
+            try{
+                if(_npgsqlconnection.State != ConnectionState.Open){
+                    _npgsqlconnection.Open();
+                }
+                using(NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Assets where c_assetId = @c_userId", _npgsqlconnection)){
+                    cmd.Parameters.AddWithValue("@c_userId", Convert.ToInt32(id));
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                assets = new t_Assets
+                                {
+                                    c_assetsId = reader.GetInt32(reader.GetOrdinal("c_assetId")),
+                                    c_assetsName = reader.GetString(reader.GetOrdinal("c_assetName")),
+                                    c_Description = reader.GetString(reader.GetOrdinal("c_Description")),
+                                    c_tags = reader.GetString(reader.GetOrdinal("c_tags")),
+                                    c_assetImage = reader.GetString(reader.GetOrdinal("c_assetImage")),
+                                };
+                            }
+                        }
+                    }
+                }
+
+            }catch(Exception ex){
+                Console.WriteLine("Error occured in GetAsetbyAssetID repository : ",ex.Message);
+            }finally{
+                if(_npgsqlconnection.State == ConnectionState.Open){
+                    _npgsqlconnection.Close();
+                }
+            }
+            return assets;
+        }
+
         public async Task<t_Assets> GetAssetsById(string id)
         {
             t_Assets asset = null;

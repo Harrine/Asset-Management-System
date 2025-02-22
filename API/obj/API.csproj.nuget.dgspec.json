@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj": {}
+    "D:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj": {}
   },
   "projects": {
-    "d:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj": {
+    "D:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj",
+        "projectUniqueName": "D:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "d:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj",
+        "projectPath": "D:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Harrine\\.nuget\\packages\\",
-        "outputPath": "d:\\Dotnet_CP\\Ketan Sir\\API\\obj\\",
+        "outputPath": "D:\\Dotnet_CP\\Ketan Sir\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Harrine\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "d:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj": {
-                "projectPath": "d:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj"
+              "D:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj": {
+                "projectPath": "D:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -82,14 +82,14 @@
         }
       }
     },
-    "d:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj": {
+    "D:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "D:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "d:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj",
+        "projectPath": "D:\\Dotnet_CP\\Ketan Sir\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Harrine\\.nuget\\packages\\",
-        "outputPath": "d:\\Dotnet_CP\\Ketan Sir\\Repositories\\obj\\",
+        "outputPath": "D:\\Dotnet_CP\\Ketan Sir\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Harrine\\AppData\\Roaming\\NuGet\\NuGet.Config",

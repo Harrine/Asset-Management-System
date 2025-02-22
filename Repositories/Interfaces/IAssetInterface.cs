@@ -16,6 +16,8 @@ namespace Repositories.Interfaces
 
         public Task<t_Assets> GetAssetsById(string id);
 
+        public Task<t_Assets> GetAssetsByAssetID(string id);
+
         public Task<List<t_Assets>> GetAssetsByUser(string id);
 
         public Task<int> Update(t_Assets asset);
