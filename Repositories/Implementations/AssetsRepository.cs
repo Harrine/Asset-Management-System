@@ -132,6 +132,100 @@ namespace Repositories.Implementations
             return assets;
         }
 
+        public async Task<List<t_Cupboards>> GetALLCupboards()
+        {
+            List<t_Cupboards> cupboards = new List<t_Cupboards>();
+            try{
+                if(_npgsqlconnection.State != ConnectionState.Open){
+                    _npgsqlconnection.Open();
+                }
+
+                using(NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Cupboards",_npgsqlconnection)){
+                    using(NpgsqlDataReader reader = await cmd.ExecuteReaderAsync()){
+                        if(reader.HasRows){
+                            while(await reader.ReadAsync()){
+                                cupboards.Add(new t_Cupboards{
+                                    c_CupboardID = reader.GetInt32(reader.GetOrdinal("c_cupboardId")),
+                                    c_CupboardName = reader.GetString(reader.GetOrdinal("c_cupboardName")),
+                                    c_c_RoomID = reader.GetInt32(reader.GetOrdinal("c_roomId"))
+                                });
+                            }
+                        }
+                    }
+                }
+
+            }catch(Exception ex){
+                Console.WriteLine("Error While getting all cupboards : ",ex.Message);
+            }finally{
+                if(_npgsqlconnection.State == ConnectionState.Open){
+                    _npgsqlconnection.Close();
+                }
+            }
+            return cupboards;
+        }
+
+        public async Task<List<t_Cupboards>> GetALLCupboardsByID(string id)
+        {
+            List<t_Cupboards> cupboards_by_id = new List<t_Cupboards>();
+            try{
+                if(_npgsqlconnection.State != ConnectionState.Open){
+                    _npgsqlconnection.Open();
+                }
+
+                using(NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Cupboards where c_roomId = @c_roomId;",_npgsqlconnection)){
+                    cmd.Parameters.AddWithValue("@c_roomId",Convert.ToInt32(id));
+
+                    using(NpgsqlDataReader reader = await cmd.ExecuteReaderAsync()){
+                        if(reader.HasRows){
+                            while(await reader.ReadAsync()){
+                                cupboards_by_id.Add(new t_Cupboards{
+                                    c_CupboardID = reader.GetInt32(reader.GetOrdinal("c_cupboardId")),
+                                    c_CupboardName = reader.GetString(reader.GetOrdinal("c_cupboardName")),
+                                    c_c_RoomID = reader.GetInt32(reader.GetOrdinal("c_roomId"))
+                                });
+                            }
+                        }
+                    }
+                }
+            }catch(Exception ex){
+                Console.WriteLine("Error while getting all cupboards by room id : ",ex.Message);
+            }finally{
+                if(_npgsqlconnection.State == ConnectionState.Open){
+                    _npgsqlconnection.Close();
+                }
+            }
+            return cupboards_by_id;
+        }
+
+        public async Task<List<t_Rooms>> GetALLRomms()
+        {
+            List<t_Rooms> rooms = new List<t_Rooms>();
+            try{
+                if(_npgsqlconnection.State != ConnectionState.Open){
+                    _npgsqlconnection.Open();
+                }
+                using(NpgsqlCommand cmd = new NpgsqlCommand("Select * from t_Rooms",_npgsqlconnection)){
+                    using(NpgsqlDataReader reader = await cmd.ExecuteReaderAsync()){
+                        if(reader.HasRows){
+                            while(await reader.ReadAsync()){
+                                rooms.Add(new t_Rooms{
+                                    c_RoomId = reader.GetInt32(reader.GetOrdinal("c_roomId")),
+                                    c_RoomName = reader.GetString(reader.GetOrdinal("c_roomName"))
+                                });
+                            }
+                        }
+                    }
+                }
+            }catch(Exception ex){
+                Console.WriteLine("Error While getting all Rooms : "+ex.Message);
+            }finally{
+                if(_npgsqlconnection.State == ConnectionState.Open){
+                    _npgsqlconnection.Close();
+                }
+            }
+            return rooms;
+        }
+
         public async Task<t_Assets> GetAssetsById(string id)
         {
             t_Assets asset = null;

@@ -121,13 +121,52 @@ namespace API.Controllers
             // string user_id = HttpContext.Session.GetString("c_UserId");
             List<t_Assets> asset_list = null;
 
-            Console.WriteLine("User id : ",user_id);
+            // Console.WriteLine("User id : ",user_id);
             if(user_id != ""){
                 asset_list = await _assets.GetAssetsByUser(user_id);
             }else{
                 asset_list = await _assets.GetAll();
             }
             return Ok(new {success = true, message = "asset retrieve from database",data = asset_list });
+        }
+
+        [HttpGet]
+        [Route("GetAllRooms")]
+        public async  Task<IActionResult> GetAllRooms(){
+            List<t_Rooms> rooms = null;
+            rooms = await _assets.GetALLRomms();
+
+            if(rooms != null){
+                return Ok(new {success = true, message = "All rooms are retrived from Database", data = rooms});
+            }else{
+                return BadRequest(new {success= false, message = "Error from asset controller in getting all rooms "});
+            }
+        }
+
+        [HttpGet]
+        [Route("GetAllCupboards")]
+        public async Task<IActionResult> GetAllCupboards(){
+            List<t_Cupboards> cupboards = null;
+            cupboards = await _assets.GetALLCupboards();
+
+            if(cupboards!= null){
+                return Ok(new {success = true, mesaage = "All Cupboards are retrieved from the database correctly", data = cupboards});
+            }else{
+                return BadRequest(new {success = false, message = "Error while getting all rooms from controller."});
+            }
+        }
+
+        [HttpGet]
+        [Route("GetAllcupboardsByID")]
+        public async Task<IActionResult> GetAllCupboardsByID(string id){
+            List<t_Cupboards> cupboards_by_id = null;
+            cupboards_by_id = await _assets.GetALLCupboardsByID(id);
+
+            if(cupboards_by_id != null){
+                return Ok(new {success = true, mesaage = "Cupboards retrieved from database from room id.",data = cupboards_by_id});
+            }else{
+                return BadRequest(new {success = false, message = "Error While retireveing cupboards from database by specific roomid." });
+            }
         }
 
         public IActionResult Index()

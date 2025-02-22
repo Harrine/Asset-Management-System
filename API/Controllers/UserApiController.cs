@@ -16,11 +16,13 @@ namespace API.Controllers
     public class UserApiController : Controller
     {
         private readonly IUserInterface _user;
+        private readonly IAssetInterface _asset;
         private readonly ILogger<UserApiController> _logger;
 
-        public UserApiController(IUserInterface userInterface)
+        public UserApiController(IUserInterface userInterface,IAssetInterface assetInterface)
         {
             _user = userInterface;
+            _asset = assetInterface;
         }
 
 
@@ -63,6 +65,12 @@ namespace API.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromForm] Login user)
         {
+            var rooms = await _asset.GetALLRomms();
+            ViewBag.rooms = rooms;
+
+            var cupboards = await _asset.GetALLCupboards();
+            ViewBag.cupboards = cupboards;
+            
             t_User UserData = await _user.Login(user);
             if (UserData.c_UserId != 0)
             {

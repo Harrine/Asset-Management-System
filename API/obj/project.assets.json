@@ -820,11 +820,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj",
+      "projectUniqueName": "D:\\Dotnet_CP\\Ketan Sir\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Dotnet_CP\\Ketan Sir\\API\\API.csproj",
+      "projectPath": "D:\\Dotnet_CP\\Ketan Sir\\api\\API.csproj",
       "packagesPath": "C:\\Users\\Harrine\\.nuget\\packages\\",
-      "outputPath": "D:\\Dotnet_CP\\Ketan Sir\\API\\obj\\",
+      "outputPath": "D:\\Dotnet_CP\\Ketan Sir\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Harrine\\AppData\\Roaming\\NuGet\\NuGet.Config",

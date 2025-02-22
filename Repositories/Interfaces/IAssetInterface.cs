@@ -19,5 +19,11 @@ namespace Repositories.Interfaces
         public Task<List<t_Assets>> GetAssetsByUser(string id);
 
         public Task<int> Update(t_Assets asset);
+
+        public Task<List<t_Rooms>> GetALLRomms();
+
+        public Task<List<t_Cupboards>> GetALLCupboards();
+
+        public Task<List<t_Cupboards>> GetALLCupboardsByID(string id);
     }
 }
