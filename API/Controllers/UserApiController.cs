@@ -65,12 +65,12 @@ namespace API.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromForm] Login user)
         {
-            var rooms = await _asset.GetALLRomms();
-            ViewBag.rooms = rooms;
+            // var rooms = await _asset.GetALLRomms();
+            // ViewBag.rooms = rooms;
 
-            var cupboards = await _asset.GetALLCupboards();
-            ViewBag.cupboards = cupboards;
-            
+            // var cupboards = await _asset.GetALLCupboards();
+            // ViewBag.cupboards = cupboards;
+
             t_User UserData = await _user.Login(user);
             if (UserData.c_UserId != 0)
             {

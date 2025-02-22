@@ -36,7 +36,9 @@ namespace API.Controllers
             }
             if (asset.c_assetPicture != null && asset.c_assetPicture.Length > 0)
             {
-                var filename = asset.c_assetsId + Path.GetExtension(asset.c_assetPicture.FileName);
+                Guid guid = Guid.NewGuid();
+                string guidstring = guid.ToString();
+                var filename = guidstring + Path.GetExtension(asset.c_assetPicture.FileName);
                 var filepath = Path.Combine("../MVC/wwwroot/asset_images", filename);
                 asset.c_assetImage = filename;
                 System.IO.File.Delete(filepath);

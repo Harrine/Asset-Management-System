@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MVC.bundle.scp.css"
     },
     {
+      "Id": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\0.png",
+      "PackagePath": "staticwebassets\\asset_images\\0.png"
+    },
+    {
       "Id": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\1.jpg",
       "PackagePath": "staticwebassets\\asset_images\\1.jpg"
     },

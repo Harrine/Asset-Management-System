@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W5ZFA2YTWcrtLuuSpLAE4vN1NuTvXVbCFlwBP/G+JaA=",
+  "Hash": "f3NiMthn3YzlgM8NKCvEzZnhtK8GuQbTu+VCr+b29GA=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MVC.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\0.png",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "asset_images/0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset_images\\0.png"
     },
     {
       "Identity": "D:\\Dotnet_CP\\Ketan Sir\\MVC\\wwwroot\\asset_images\\1.jpg",

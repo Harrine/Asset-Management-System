@@ -106,6 +106,9 @@
             console.log("Asset List Document Loaded successfully")
             loadData();
 
+        })
+
+        $('#btnadd').click(function(){
             loadRooms();
         })
 
@@ -223,7 +226,42 @@
         }
 
         function saveData() {
+            var user = JSON.parse(sessionStorage.getItem("user"));
+            var formdata = new FormData();
+            formdata.append("c_assetsName",$('#name').val());
+            formdata.append("c_Description",$('#description').val());
+            formdata.append("c_cupboardID",$('#cupboard').val());
+            formdata.append("c_tags","Tags");
+            formdata.append("c_assetImage", "image");
+            formdata.append("c_userID",user.c_UserId);
 
+            var imageFile = $('#Image')[0].files[0];
+            if(imageFile){
+                formdata.append("c_assetPicture",imageFile);
+            }
+
+            $.ajax({
+                url: "http://localhost:5273/AddAsset",
+                type:"POST",
+                data:formdata,
+                contentType:false,
+                processData:false,
+                success:function(response){
+                    console.log("Inside success of saveData:",response);
+
+                    $("#responseModalMessage").html('<div class="alert alert-success">Asset Created Successfully!</div>');
+
+                    clearData();
+                    setTimeout(function(){
+                        $('#myModal').modal('hide')
+                    },2000);
+                    loadData();
+                    console.log("Completed success of saveData");
+                },
+                error(xhr,status,error){
+                    console.log("Error Occured in saveData function:",xhr);
+                }
+            })
         }
     </script>
 }
